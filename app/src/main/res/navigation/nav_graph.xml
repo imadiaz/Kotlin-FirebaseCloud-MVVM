@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navHomeFragment">
+
+    <fragment
+        android:id="@+id/navHomeFragment"
+        android:name="com.platzi.conf.view.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_scheduleFragment"
+            app:destination="@id/navScheduleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navScheduleFragment"
+        android:name="com.platzi.conf.view.ui.schedule.ScheduleFragment"
+        android:label="fragment_schedule"
+        tools:layout="@layout/fragment_schedule" >
+        <action
+            android:id="@+id/action_scheduleFragment_to_speakerFragment"
+            app:destination="@id/navSpeakerFragment" />
+        <action
+            android:id="@+id/action_navScheduleFragment_to_scheduleDetailFragmentDialog"
+            app:destination="@id/scheduleDetailFragmentDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/navMapFragment"
+        android:name="com.platzi.conf.view.ui.location.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" >
+        <action
+            android:id="@+id/action_navMapFragment_to_locationDetailFragmentDialog"
+            app:destination="@id/locationDetailFragmentDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/navSpeakerFragment"
+        android:name="com.platzi.conf.view.ui.speaker.SpeakerFragment"
+        android:label="SpeakerFragment" >
+        <action
+            android:id="@+id/action_speakerFragment_to_locationFragment"
+            app:destination="@id/navMapFragment" />
+        <action
+            android:id="@+id/action_navSpeakerFragment_to_speakerDetailFragmentDialog"
+            app:destination="@id/speakerDetailFragmentDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/speakerDetailFragmentDialog"
+        android:name="com.platzi.conf.view.ui.speaker.SpeakerDetailDialogFragment"
+        android:label="SpeakerDetailFragmentDialog"
+        tools:layout="@layout/fragment_speaker_detail_dialog"
+        />
+
+    <dialog
+        android:id="@+id/scheduleDetailFragmentDialog"
+        android:name="com.platzi.conf.view.ui.schedule.ScheduleDetailDialogFragment"
+        android:label="ScheduleDetailFragmentDialog"
+        tools:layout="@layout/fragment_schedule_detail_dialog"
+        />
+
+    <dialog
+        android:id="@+id/locationDetailFragmentDialog"
+        android:name="com.platzi.conf.view.ui.location.LocationDetailDialogFragment"
+        android:label="LocationDetailFragmentDialog"
+        tools:layout="@layout/fragment_location_detail_dialog"
+        />
+</navigation>
